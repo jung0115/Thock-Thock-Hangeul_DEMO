@@ -29,7 +29,7 @@ microphone. The averaging of results to give a more reliable signal happens in
 the RecognizeCommands helper class.
 */
 
-package org.tensorflow.demo;
+package com.tensorflow.demo;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
-import org.tensorflow.demo.R;
+import com.tensorflow.demo.R;
 
 /**
  * An activity that listens for audio and then uses a TensorFlow model to detect particular classes,

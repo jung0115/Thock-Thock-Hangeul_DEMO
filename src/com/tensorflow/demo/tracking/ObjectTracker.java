@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package org.tensorflow.demo.tracking;
+package com.tensorflow.demo.tracking;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -22,6 +22,10 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+
+import com.tensorflow.demo.env.Logger;
+import com.tensorflow.demo.env.Size;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -29,8 +33,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import javax.microedition.khronos.opengles.GL10;
-import org.tensorflow.demo.env.Logger;
-import org.tensorflow.demo.env.Size;
 
 /**
  * True object detector/tracker class that tracks objects across consecutive preview frames.
@@ -260,7 +262,7 @@ public class ObjectTracker {
 
   @SuppressWarnings("unused")
   public synchronized void drawOverlay(final GL10 gl,
-      final Size cameraViewSize, final Matrix matrix) {
+                                       final Size cameraViewSize, final Matrix matrix) {
     final Matrix tempMatrix = new Matrix(matrix);
     tempMatrix.preScale(DOWNSAMPLE_FACTOR, DOWNSAMPLE_FACTOR);
     tempMatrix.getValues(matrixValues);

@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package org.tensorflow.demo;
+package com.tensorflow.demo;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -22,13 +22,11 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-import org.tensorflow.demo.Classifier.Recognition;
-
 import java.util.List;
 
 public class RecognitionScoreView extends View implements ResultsView {
   private static final float TEXT_SIZE_DIP = 24;
-  private List<Recognition> results;
+  private List<Classifier.Recognition> results;
   private final float textSizePx;
   private final Paint fgPaint;
   private final Paint bgPaint;
@@ -47,7 +45,7 @@ public class RecognitionScoreView extends View implements ResultsView {
   }
 
   @Override
-  public void setResults(final List<Recognition> results) {
+  public void setResults(final List<Classifier.Recognition> results) {
     this.results = results;
     postInvalidate();
   }
@@ -60,7 +58,7 @@ public class RecognitionScoreView extends View implements ResultsView {
     canvas.drawPaint(bgPaint);
 
     if (results != null) {
-      for (final Recognition recog : results) {
+      for (final Classifier.Recognition recog : results) {
         canvas.drawText(recog.getTitle() + ": " + recog.getConfidence(), x, y, fgPaint);
         y += fgPaint.getTextSize() * 1.5f;
       }
