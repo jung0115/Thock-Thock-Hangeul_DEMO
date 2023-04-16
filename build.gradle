@@ -59,7 +59,7 @@ apply from: "download-models.gradle"
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     lintOptions {
         abortOnError false
@@ -97,7 +97,8 @@ android {
         release.setRoot('build-types/release')
     }
     defaultConfig {
-        targetSdkVersion 29
+        applicationId 'org.tensorflow.demo'
+        targetSdkVersion 30
         minSdkVersion 21
     }
 }

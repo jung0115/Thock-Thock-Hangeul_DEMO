@@ -19,7 +19,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.tensorflow.demo">
 
-    <uses-sdk android:minSdkVersion="14" />
+    <uses-sdk android:minSdkVersion="21" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
