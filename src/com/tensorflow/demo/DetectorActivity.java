@@ -23,12 +23,14 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
 import android.os.SystemClock;
 import android.util.Size;
 import android.util.TypedValue;
+import android.view.Display;
 import android.widget.Toast;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -90,7 +92,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private static final boolean MAINTAIN_ASPECT = MODE == DetectorMode.YOLO;
 
-  private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
+  private static Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
 
   private static final boolean SAVE_PREVIEW_BITMAP = false;
   private static final float TEXT_SIZE_DIP = 10;
@@ -337,6 +339,17 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   @Override
   protected Size getDesiredPreviewFrameSize() {
+    // 디바이스 가로세로 길이 구하기
+    Display display = getWindowManager().getDefaultDisplay();  // in Activity
+    /* getActivity().getWindowManager().getDefaultDisplay() */ // in Fragment
+    Point size = new Point();
+    display.getRealSize(size); // or getSize(size)
+    int width = size.x;
+    int height = size.y;
+
+    // width가 넓으면 화질 up, height이 좁으면 화면 넓게 쓸 수 있음.
+    DESIRED_PREVIEW_SIZE = new Size((int)(width/1.5), 1);
+
     return DESIRED_PREVIEW_SIZE;
   }
 
