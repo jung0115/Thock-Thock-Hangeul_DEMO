@@ -59,7 +59,7 @@ apply from: "download-models.gradle"
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     lintOptions {
         abortOnError false
@@ -70,13 +70,13 @@ android {
             if (nativeBuildSystem == 'bazel') {
                 // TensorFlow Java API sources.
                 java {
-                    srcDir '../../java/src/main/java'
+                    srcDir './tensorflow_tools/tensorflow_api/java'
                     exclude '**/examples/**'
                 }
 
                 // Android TensorFlow wrappers, etc.
                 java {
-                    srcDir '../../tools/android/inference_interface/java'
+                    srcDir './tensorflow_tools/inference_interface/java'
                 }
             }
             // Android demo app sources.
@@ -98,7 +98,7 @@ android {
     }
     defaultConfig {
         applicationId 'org.tensorflow.demo'
-        targetSdkVersion 30
+        targetSdkVersion 31
         minSdkVersion 21
     }
 }
