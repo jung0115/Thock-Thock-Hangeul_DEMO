@@ -37,7 +37,7 @@
 
         <!-- 객체 인식 -->
         <activity android:name="com.tensorflow.demo.DetectorActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:label="@string/activity_name_detection"
             android:exported="true">
             <intent-filter>
