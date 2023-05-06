@@ -1,4 +1,4 @@
-package com.tensorflow.demo;
+package com.jung.tthanguel;
 
 /*
  * Copyright 2017 The TensorFlow Authors. All Rights Reserved.
@@ -32,9 +32,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.io.IOException;
 import java.util.List;
-import com.tensorflow.demo.env.ImageUtils;
-import com.tensorflow.demo.env.Logger;
-import com.tensorflow.demo.R; // Explicit import needed for internal Google builds.
+import com.jung.tthanguel.env.ImageUtils;
+import com.jung.tthanguel.env.Logger;
+import com.jung.tthanguel.R; // Explicit import needed for internal Google builds.
 
 public class LegacyCameraConnectionFragment extends Fragment {
   private Camera camera;

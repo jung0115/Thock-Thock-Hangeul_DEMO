@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.tensorflow.demo;
+package com.jung.tthanguel;
 
 import java.util.List;
 

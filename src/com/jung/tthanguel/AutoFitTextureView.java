@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tensorflow.demo;
+package com.jung.tthanguel;
 
 import android.content.Context;
 import android.util.AttributeSet;
