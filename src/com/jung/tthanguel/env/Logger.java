@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.tensorflow.tthanguel.env;
+package com.jung.tthanguel.env;
 
 import android.util.Log;
 

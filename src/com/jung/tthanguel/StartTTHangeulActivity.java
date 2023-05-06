@@ -1,4 +1,4 @@
-package com.tensorflow.tthanguel;
+package com.jung.tthanguel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.tensorflow.tthanguel.R;
-import com.tensorflow.tthanguel.databinding.ActivityStartTthangeulBinding;
+import com.jung.tthanguel.R;
+import com.jung.tthanguel.databinding.ActivityStartTthangeulBinding;
 
 // 앱 접속 시 첫 화면
 public class StartTTHangeulActivity extends AppCompatActivity {

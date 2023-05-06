@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.tensorflow.tthanguel.tracking;
+package com.jung.tthanguel.tracking;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -23,8 +23,8 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 
-import com.tensorflow.tthanguel.env.Logger;
-import com.tensorflow.tthanguel.env.Size;
+import com.jung.tthanguel.env.Logger;
+import com.jung.tthanguel.env.Size;
 
 import java.util.ArrayList;
 import java.util.HashMap;

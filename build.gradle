@@ -97,7 +97,7 @@ android {
         release.setRoot('build-types/release')
     }
     defaultConfig {
-        applicationId 'com.tensorflow.demo'
+        applicationId 'com.jung.tthanguel'
         targetSdkVersion 31
         minSdkVersion 21
     }

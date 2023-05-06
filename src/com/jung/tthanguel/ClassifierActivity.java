@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tensorflow.tthanguel;
+package com.jung.tthanguel;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -29,10 +29,10 @@ import android.util.TypedValue;
 import java.util.List;
 import java.util.Vector;
 
-import com.tensorflow.tthanguel.env.BorderedText;
-import com.tensorflow.tthanguel.env.ImageUtils;
-import com.tensorflow.tthanguel.env.Logger;
-import com.tensorflow.tthanguel.R; // Explicit import needed for internal Google builds.
+import com.jung.tthanguel.env.BorderedText;
+import com.jung.tthanguel.env.ImageUtils;
+import com.jung.tthanguel.env.Logger;
+import com.jung.tthanguel.R; // Explicit import needed for internal Google builds.
 
 public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener {
   private static final Logger LOGGER = new Logger();

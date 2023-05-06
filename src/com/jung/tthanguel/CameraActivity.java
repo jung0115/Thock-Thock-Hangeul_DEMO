@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tensorflow.tthanguel;
+package com.jung.tthanguel;
 
 import android.Manifest;
 import android.app.Activity;
@@ -41,9 +41,9 @@ import android.view.Surface;
 import android.view.WindowManager;
 import android.widget.Toast;
 import java.nio.ByteBuffer;
-import com.tensorflow.tthanguel.env.ImageUtils;
-import com.tensorflow.tthanguel.env.Logger;
-import com.tensorflow.tthanguel.R; // Explicit import needed for internal Google builds.
+import com.jung.tthanguel.env.ImageUtils;
+import com.jung.tthanguel.env.Logger;
+import com.jung.tthanguel.R; // Explicit import needed for internal Google builds.
 
 public abstract class CameraActivity extends Activity
     implements OnImageAvailableListener, Camera.PreviewCallback {

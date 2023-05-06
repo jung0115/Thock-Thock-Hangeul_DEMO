@@ -13,15 +13,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.tensorflow.tthanguel;
+package com.jung.tthanguel;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.RectF;
 import android.os.Trace;
 
-import com.tensorflow.tthanguel.env.Logger;
-import com.tensorflow.tthanguel.env.SplitTimer;
+import com.jung.tthanguel.env.Logger;
+import com.jung.tthanguel.env.SplitTimer;
 
 import java.util.ArrayList;
 import java.util.Comparator;
