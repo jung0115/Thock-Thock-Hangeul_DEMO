@@ -1,4 +1,4 @@
-package com.tensorflow.demo;
+package com.tensorflow.tthanguel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
-import com.tensorflow.demo.DetectorActivity;
-import com.tensorflow.demo.R;
-import com.tensorflow.demo.databinding.ActivityStartTthangeulBinding;
+import com.tensorflow.tthanguel.R;
+import com.tensorflow.tthanguel.databinding.ActivityStartTthangeulBinding;
 
 // 앱 접속 시 첫 화면
 public class StartTTHangeulActivity extends AppCompatActivity {

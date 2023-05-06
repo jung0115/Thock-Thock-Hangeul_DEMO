@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tensorflow.demo;
+package com.tensorflow.tthanguel;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -58,8 +58,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import com.tensorflow.demo.env.Logger;
-import com.tensorflow.demo.R; // Explicit import needed for internal Google builds.
+import com.tensorflow.tthanguel.env.Logger;
+import com.tensorflow.tthanguel.R; // Explicit import needed for internal Google builds.
 
 public class CameraConnectionFragment extends Fragment {
   private static final Logger LOGGER = new Logger();

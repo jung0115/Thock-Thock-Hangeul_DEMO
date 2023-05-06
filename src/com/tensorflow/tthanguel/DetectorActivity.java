@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tensorflow.demo;
+package com.tensorflow.tthanguel;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -36,12 +36,12 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
-import com.tensorflow.demo.OverlayView.DrawCallback;
-import com.tensorflow.demo.env.BorderedText;
-import com.tensorflow.demo.env.ImageUtils;
-import com.tensorflow.demo.env.Logger;
-import com.tensorflow.demo.tracking.MultiBoxTracker;
-import com.tensorflow.demo.R; // Explicit import needed for internal Google builds.
+import com.tensorflow.tthanguel.OverlayView.DrawCallback;
+import com.tensorflow.tthanguel.env.BorderedText;
+import com.tensorflow.tthanguel.env.ImageUtils;
+import com.tensorflow.tthanguel.env.Logger;
+import com.tensorflow.tthanguel.tracking.MultiBoxTracker;
+import com.tensorflow.tthanguel.R; // Explicit import needed for internal Google builds.
 
 /**
  * An activity that uses a TensorFlowMultiBoxDetector and ObjectTracker to detect and then track

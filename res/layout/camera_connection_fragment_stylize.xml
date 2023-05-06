@@ -17,7 +17,7 @@
       android:orientation="vertical"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
-  <com.tensorflow.demo.AutoFitTextureView
+  <com.tensorflow.tthanguel.AutoFitTextureView
     android:id="@+id/texture"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -37,13 +37,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 
-  <com.tensorflow.demo.OverlayView
+  <com.tensorflow.tthanguel.OverlayView
       android:id="@+id/overlay"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:layout_alignParentTop="true" />
 
-  <com.tensorflow.demo.OverlayView
+  <com.tensorflow.tthanguel.OverlayView
     android:id="@+id/debug_overlay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

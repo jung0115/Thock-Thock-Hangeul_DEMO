@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.tensorflow.demo">
+    package="com.tensorflow.tthanguel">
 
     <uses-sdk android:minSdkVersion="21" />
 
@@ -32,7 +32,7 @@
 
         <!-- 앱 최초 접속 페이지 -->
         <activity
-            android:name=".StartTTHangeulActivity"
+            android:name="com.tensorflow.tthanguel.StartTTHangeulActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -45,7 +45,7 @@
 
         <!-- 객체 인식 -->
         <activity
-            android:name=".DetectorActivity"
+            android:name="com.tensorflow.tthanguel.DetectorActivity"
             android:exported="true"
             android:screenOrientation="landscape">
 
