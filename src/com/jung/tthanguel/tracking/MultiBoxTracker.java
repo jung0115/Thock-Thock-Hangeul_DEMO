@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.tensorflow.demo.tracking;
+package com.jung.tthanguel.tracking;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -29,15 +29,15 @@ import android.util.Pair;
 import android.util.TypedValue;
 import android.widget.Toast;
 
-import com.tensorflow.demo.Classifier;
-import com.tensorflow.demo.env.Logger;
+import com.jung.tthanguel.Classifier;
+import com.jung.tthanguel.env.Logger;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import com.tensorflow.demo.env.BorderedText;
-import com.tensorflow.demo.env.ImageUtils;
+import com.jung.tthanguel.env.BorderedText;
+import com.jung.tthanguel.env.ImageUtils;
 
 /**
  * A tracker wrapping ObjectTracker that also handles non-max suppression and matching existing

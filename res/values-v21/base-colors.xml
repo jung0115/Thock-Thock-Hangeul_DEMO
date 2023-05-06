@@ -16,6 +16,8 @@
 -->
 
 <resources>
-
-
+    <color name="main_color">#66C91E</color>
+    <color name="light_green">#B4E88E</color>
+    <color name="dark_green">#1C922E</color>
+    <color name="white">#FFFFFF</color>
 </resources>

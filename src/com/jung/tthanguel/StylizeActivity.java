@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tensorflow.demo;
+package com.jung.tthanguel;
 
 import android.app.UiModeManager;
 import android.content.Context;
@@ -56,10 +56,10 @@ import java.util.Collections;
 import java.util.Vector;
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
 
-import com.tensorflow.demo.env.BorderedText;
-import com.tensorflow.demo.env.ImageUtils;
-import com.tensorflow.demo.env.Logger;
-import com.tensorflow.demo.R; // Explicit import needed for internal Google builds.
+import com.jung.tthanguel.env.BorderedText;
+import com.jung.tthanguel.env.ImageUtils;
+import com.jung.tthanguel.env.Logger;
+import com.jung.tthanguel.R; // Explicit import needed for internal Google builds.
 
 /**
  * Sample activity that stylizes the camera preview according to "A Learned Representation For
