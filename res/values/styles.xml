@@ -24,9 +24,16 @@
         <item name="colorPrimaryDark">@color/main_color</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
+        <!--<item name="android:statusBarColor" tools:targetApi="l">@color/white</item>-->
 
         <!-- Customize your theme here. -->
+
+        <!-- 배경색 -->
+        <item name="android:windowBackground">@color/light_green</item>
+        <!-- 상태바 아이콘색 - true: 어둡게-->
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- 상태바 색상 - 투명하게 해둠 -->
+        <item name="android:statusBarColor">@color/transparent</item>
 
     </style>
 </resources>
