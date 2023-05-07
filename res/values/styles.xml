@@ -29,7 +29,7 @@
         <!-- Customize your theme here. -->
 
         <!-- 배경색 -->
-        <item name="android:windowBackground">@color/light_green</item>
+        <item name="android:windowBackground">@color/white</item>
         <!-- 상태바 아이콘색 - true: 어둡게-->
         <item name="android:windowLightStatusBar">true</item>
         <!-- 상태바 색상 - 투명하게 해둠 -->
