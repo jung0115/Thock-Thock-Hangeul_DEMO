@@ -59,7 +59,7 @@ apply from: "download-models.gradle"
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     lintOptions {
         abortOnError false
@@ -88,7 +88,12 @@ android {
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
+            res.srcDirs = [
+                    'res/layouts/yolo',
+                    'res/layouts/start-page',
+                    'res/layouts',
+                    'res'
+            ]
             assets.srcDirs = [project.ext.ASSET_DIR]
             jniLibs.srcDirs = ['libs']
         }
@@ -98,7 +103,7 @@ android {
     }
     defaultConfig {
         applicationId 'com.jung.tthanguel'
-        targetSdkVersion 31
+        targetSdkVersion 33
         minSdkVersion 21
     }
     viewBinding {
