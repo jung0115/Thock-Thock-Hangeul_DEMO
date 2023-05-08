@@ -348,7 +348,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     int height = size.y;
 
     // width가 넓으면 화질 up, height이 좁으면 화면 넓게 쓸 수 있음.
-    DESIRED_PREVIEW_SIZE = new Size((int)(width), 1);
+    // default height: 480
+    DESIRED_PREVIEW_SIZE = new Size((int)(width), 400);
 
     return DESIRED_PREVIEW_SIZE;
   }
