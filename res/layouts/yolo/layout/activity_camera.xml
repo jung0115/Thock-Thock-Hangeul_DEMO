@@ -14,21 +14,9 @@
  limitations under the License.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-      <com.jung.tthanguel.AutoFitTextureView
-          android:id="@+id/texture"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
-
-      <com.jung.tthanguel.OverlayView
-          android:id="@+id/tracking_overlay"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"/>
-
-      <com.jung.tthanguel.OverlayView
-          android:id="@+id/debug_overlay"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"/>
-</FrameLayout>
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.jung.tthanguel.CameraActivity" />

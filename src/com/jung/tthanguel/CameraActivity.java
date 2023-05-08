@@ -38,6 +38,7 @@ import android.os.Trace;
 import android.util.Size;
 import android.view.KeyEvent;
 import android.view.Surface;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 import java.nio.ByteBuffer;
@@ -78,11 +79,26 @@ public abstract class CameraActivity extends Activity
 
     setContentView(R.layout.activity_camera);
 
+    // Full Screen : 상태바 감추기
+    setFullScreen();
+
     if (hasPermission()) {
       setFragment();
     } else {
       requestPermission();
     }
+  }
+
+  // Full Screen : 상태바 감추기
+  protected void setFullScreen() {
+    int uiOption = getWindow().getDecorView().getSystemUiVisibility();
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+      uiOption |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+      uiOption |= View.SYSTEM_UI_FLAG_FULLSCREEN;
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+      uiOption |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+    getWindow().getDecorView().setSystemUiVisibility(uiOption);
   }
 
   private byte[] lastPreviewFrame;
