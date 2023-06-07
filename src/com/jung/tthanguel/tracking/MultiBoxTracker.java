@@ -134,7 +134,7 @@ public class MultiBoxTracker {
       final RectF rect = detection.second;
       canvas.drawRect(rect, boxPaint);
       canvas.drawText("" + detection.first, rect.left, rect.top, textPaint);
-      borderedText.drawText(canvas, rect.centerX(), rect.centerY(), "" + detection.first);
+      //borderedText.drawText(canvas, rect.centerX(), rect.centerY(), "" + detection.first);
     }
 
     if (objectTracker == null) {
@@ -149,7 +149,7 @@ public class MultiBoxTracker {
 
       if (getFrameToCanvasMatrix().mapRect(trackedPos)) {
         final String labelString = String.format("%.2f", trackedObject.getCurrentCorrelation());
-        borderedText.drawText(canvas, trackedPos.right, trackedPos.bottom, labelString);
+        //borderedText.drawText(canvas, trackedPos.right, trackedPos.bottom, labelString);
       }
     }
 
@@ -192,7 +192,7 @@ public class MultiBoxTracker {
           !TextUtils.isEmpty(recognition.title)
               ? String.format("%s %.2f", recognition.title, recognition.detectionConfidence)
               : String.format("%.2f", recognition.detectionConfidence);
-      borderedText.drawText(canvas, trackedPos.left + cornerSize, trackedPos.bottom, labelString);
+      //borderedText.drawText(canvas, trackedPos.left + cornerSize, trackedPos.bottom, labelString);
     }
   }
 
