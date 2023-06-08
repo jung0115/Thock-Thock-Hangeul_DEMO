@@ -31,7 +31,6 @@ public class StartTTHangeulActivity extends AppCompatActivity {
                 // 객체 인식 페이지로 이동
                 Intent intent = new Intent(StartTTHangeulActivity.this, DetectorActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

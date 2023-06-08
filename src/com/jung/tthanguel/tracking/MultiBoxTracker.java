@@ -25,6 +25,7 @@ import android.graphics.Paint.Join;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.widget.Toast;
@@ -105,7 +106,7 @@ public class MultiBoxTracker {
 
     boxPaint.setColor(Color.RED);
     boxPaint.setStyle(Style.STROKE);
-    boxPaint.setStrokeWidth(12.0f);
+    boxPaint.setStrokeWidth(9.0f); // 바운딩 박스(bounding box) 두께
     boxPaint.setStrokeCap(Cap.ROUND);
     boxPaint.setStrokeJoin(Join.ROUND);
     boxPaint.setStrokeMiter(100);
@@ -131,6 +132,8 @@ public class MultiBoxTracker {
     boxPaint.setStyle(Style.STROKE);
 
     for (final Pair<Float, RectF> detection : screenRects) {
+      logger.i("Test detection -----------------------------------");
+      logger.i("Test detection" + detection.toString());
       final RectF rect = detection.second;
       canvas.drawRect(rect, boxPaint);
       canvas.drawText("" + detection.first, rect.left, rect.top, textPaint);
@@ -150,6 +153,8 @@ public class MultiBoxTracker {
 
       if (getFrameToCanvasMatrix().mapRect(trackedPos)) {
         final String labelString = String.format("%.2f", trackedObject.getCurrentCorrelation());
+        logger.i("Test label -----------------------------------");
+        logger.i("Test label" + labelString);
         borderedText.drawText(canvas, trackedPos.right, trackedPos.bottom, labelString);
       }
     }
