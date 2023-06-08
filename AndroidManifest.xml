@@ -34,7 +34,7 @@
 
         <!-- 앱 최초 접속 페이지 -->
         <activity
-            android:name="com.jung.tthanguel.StartTTHangeulActivity"
+            android:name="com.jung.tthanguel.startTTHangeul.StartTTHangeulActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -47,7 +47,7 @@
 
         <!-- 객체 인식 -->
         <activity
-            android:name="com.jung.tthanguel.DetectorActivity"
+            android:name="com.jung.tthanguel.objectDetect.DetectorActivity"
             android:exported="true"
             android:screenOrientation="portrait">
 

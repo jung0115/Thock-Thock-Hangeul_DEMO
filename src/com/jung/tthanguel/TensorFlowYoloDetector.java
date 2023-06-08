@@ -22,6 +22,7 @@ import android.os.Trace;
 
 import com.jung.tthanguel.env.Logger;
 import com.jung.tthanguel.env.SplitTimer;
+import com.jung.tthanguel.objectDetect.Classifier;
 
 import java.util.ArrayList;
 import java.util.Comparator;

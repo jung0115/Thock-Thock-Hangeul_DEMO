@@ -15,7 +15,8 @@
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
       <!-- 카메라 영역 -->
       <com.jung.tthanguel.AutoFitTextureView
@@ -24,24 +25,33 @@
           android:layout_height="wrap_content"/>
 
       <!-- 객체 바운딩 박스 보여줌 -->
-      <com.jung.tthanguel.OverlayView
+      <com.jung.tthanguel.objectDetect.OverlayView
           android:id="@+id/tracking_overlay"
           android:layout_width="match_parent"
           android:layout_height="match_parent" />
 
       <!-- Debug -->
-      <com.jung.tthanguel.OverlayView
+      <com.jung.tthanguel.objectDetect.OverlayView
           android:id="@+id/debug_overlay"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_below="@id/texture"/>
+          android:layout_below="@id/texture"
+          android:background="@color/background"/>
 
-      <TextView
-          android:layout_width="wrap_content"
+      <RelativeLayout
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="노란색 물건을 찾아보세요."
-          android:textSize="24dp"
-          android:textColor="@color/black"
-          android:layout_below="@id/texture"/>
+          android:layout_below="@id/texture"
+          android:background="@color/background">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="노란색 물건을 찾아보세요."
+                android:textSize="24dp"
+                android:textColor="@color/black"
+                />
+
+      </RelativeLayout>
 
 </RelativeLayout>

@@ -32,7 +32,9 @@ import java.util.Vector;
 import com.jung.tthanguel.env.BorderedText;
 import com.jung.tthanguel.env.ImageUtils;
 import com.jung.tthanguel.env.Logger;
-import com.jung.tthanguel.R; // Explicit import needed for internal Google builds.
+import com.jung.tthanguel.objectDetect.CameraActivity;
+import com.jung.tthanguel.objectDetect.Classifier;
+import com.jung.tthanguel.objectDetect.OverlayView;
 
 public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener {
   private static final Logger LOGGER = new Logger();

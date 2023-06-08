@@ -25,12 +25,11 @@ import android.graphics.Paint.Join;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.widget.Toast;
 
-import com.jung.tthanguel.Classifier;
+import com.jung.tthanguel.objectDetect.Classifier;
 import com.jung.tthanguel.env.Logger;
 
 import java.util.LinkedList;

@@ -22,6 +22,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.jung.tthanguel.objectDetect.Classifier;
+
 import java.util.List;
 
 public class RecognitionScoreView extends View implements ResultsView {

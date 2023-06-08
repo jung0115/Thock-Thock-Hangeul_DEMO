@@ -32,6 +32,7 @@ import org.tensorflow.Graph;
 import org.tensorflow.Operation;
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
 import com.jung.tthanguel.env.Logger;
+import com.jung.tthanguel.objectDetect.Classifier;
 
 /**
  * Wrapper for frozen detection models trained using the Tensorflow Object Detection API:

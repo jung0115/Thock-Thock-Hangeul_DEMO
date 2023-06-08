@@ -33,6 +33,7 @@ import org.tensorflow.Graph;
 import org.tensorflow.Operation;
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
 import com.jung.tthanguel.env.Logger;
+import com.jung.tthanguel.objectDetect.Classifier;
 
 /**
  * A detector for general purpose object detection as described in Scalable Object Detection using

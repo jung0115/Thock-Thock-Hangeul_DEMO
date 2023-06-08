@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jung.tthanguel;
+package com.jung.tthanguel.objectDetect;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -49,7 +49,12 @@ import java.net.URLEncoder;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
-import com.jung.tthanguel.OverlayView.DrawCallback;
+
+import com.jung.tthanguel.BuildConfig;
+import com.jung.tthanguel.objectDetect.OverlayView.DrawCallback;
+import com.jung.tthanguel.TensorFlowMultiBoxDetector;
+import com.jung.tthanguel.TensorFlowObjectDetectionAPIModel;
+import com.jung.tthanguel.TensorFlowYoloDetector;
 import com.jung.tthanguel.env.BorderedText;
 import com.jung.tthanguel.env.ImageUtils;
 import com.jung.tthanguel.env.Logger;
