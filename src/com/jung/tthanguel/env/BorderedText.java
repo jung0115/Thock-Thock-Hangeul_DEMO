@@ -57,7 +57,7 @@ public class BorderedText {
     interiorPaint.setColor(interiorColor);
     interiorPaint.setStyle(Style.FILL);
     interiorPaint.setAntiAlias(false);
-    interiorPaint.setAlpha(255);
+    interiorPaint.setAlpha(0); // 0: 완전 투명 / 255: 완전 불투명
 
     exteriorPaint = new Paint();
     exteriorPaint.setTextSize(textSize);
@@ -65,7 +65,7 @@ public class BorderedText {
     exteriorPaint.setStyle(Style.FILL_AND_STROKE);
     exteriorPaint.setStrokeWidth(textSize / 8);
     exteriorPaint.setAntiAlias(false);
-    exteriorPaint.setAlpha(255);
+    exteriorPaint.setAlpha(0); // 0: 완전 투명 / 255: 완전 불투명
 
     this.textSize = textSize;
   }

@@ -135,6 +135,7 @@ public class MultiBoxTracker {
       canvas.drawRect(rect, boxPaint);
       canvas.drawText("" + detection.first, rect.left, rect.top, textPaint);
       borderedText.drawText(canvas, rect.centerX(), rect.centerY(), "" + detection.first);
+
     }
 
     if (objectTracker == null) {

@@ -8,18 +8,27 @@
     tools:context=".StartTTHangeulActivity"
     android:background="@color/background">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_tt_hangeul"
+        android:layout_centerHorizontal="true" />
+
     <Button
         android:id="@+id/btn_start_app"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="30dp"
+        android:layout_margin="20dp"
+        android:paddingVertical="16dp"
         android:text="@string/app_start"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:background="@color/main_color"/>
+        android:background="@drawable/shape_radius_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
