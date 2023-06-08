@@ -27,6 +27,8 @@ import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.SystemClock;
 import android.util.Log;
 import android.util.Size;
@@ -34,7 +36,16 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
@@ -434,8 +445,75 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
           // 선택한 오브젝트 정보
           Log.d("touch object", "---------------------------------");
           Log.d("touch object", objectName);
+          selectedObject = objectName;
+          final Translate translate = new Translate();
+          translate.execute();
         }
       }
+    }
+  }
+
+  // 선택된 object
+  String selectedObject = "";
+
+  // 번역 - 파파고 api
+  class Translate extends AsyncTask<String ,Void, String > {   //ASYNCTASK를 사용
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+
+    protected String doInBackground(String... strings) {
+
+      String clientId = BuildConfig.PAPAGO_CLIENT_ID;         // papago api 클라이언트 아이디값
+      String clientSecret = BuildConfig.PAPAGO_CLIENT_SECRET; // papago api 클라이언트 시크릿값
+      try {
+        // 선택된 오브젝트
+        String objectEng = URLEncoder.encode(selectedObject, "UTF-8");
+
+        String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
+        URL url = new URL(apiURL);
+        HttpURLConnection con = (HttpURLConnection)url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("X-Naver-Client-Id", clientId);
+        con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+        // post request
+        String postParams = "source=en&target=ko&text=" + objectEng;
+        con.setDoOutput(true);
+        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        wr.writeBytes(postParams);
+        wr.flush();
+        wr.close();
+        int responseCode = con.getResponseCode();
+        BufferedReader br;
+        if(responseCode==200) { // 정상 호출
+          br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        } else {  // 에러 발생
+          br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+        }
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+        while ((inputLine = br.readLine()) != null) {
+          response.append(inputLine);
+        }
+        br.close();
+        //System.out.println(response.toString());
+
+        // response에서 번역 결과만 잘라내기
+        String objectKor1[] = response.toString().split(":");
+        String objectKor2[] = objectKor1[5].split("\"");
+
+        //String objectName[] = objectKor.split(":");
+        //objectKor = objectKor.substring(objectKor.indexOf("\"translatedText\":\"")+1);
+        //objectKor = objectKor.substring(0, objectKor.indexOf("\",\"engineType\""));
+
+        // 번역 결과
+        //Log.d("select Object", "-------------------------");
+        //Log.d("select Object", objectKor2[1]);
+
+      } catch (Exception e) {
+        System.out.println(e);
+      }
+      return null;
     }
   }
 }

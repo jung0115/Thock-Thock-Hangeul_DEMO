@@ -58,6 +58,10 @@ apply from: "download-models.gradle"
 
 apply plugin: 'com.android.application'
 
+// 프로퍼티를 선언하고, 저장한 키값을 불러온다.
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     compileSdkVersion 33
 
@@ -105,6 +109,11 @@ android {
         applicationId 'com.jung.tthanguel'
         targetSdkVersion 33
         minSdkVersion 21
+
+        // 프로젝트 내에서 언제든지 사용이 가능한 변수들이다.
+        // 타입 - 키 - 값으로 저장된다.
+        buildConfigField "String", "PAPAGO_CLIENT_ID", properties['papago_client_id']
+        buildConfigField "String", "PAPAGO_CLIENT_SECRET", properties['papago_client_secret']
     }
     viewBinding {
         enabled = true
