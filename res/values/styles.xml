@@ -31,7 +31,7 @@
         <!-- 배경색 -->
         <item name="android:windowBackground">@color/background</item>
         <!-- 상태바 아이콘색 - true: 어둡게-->
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
         <!-- 상태바 색상 - 투명하게 해둠 -->
         <item name="android:statusBarColor">@color/transparent</item>
 

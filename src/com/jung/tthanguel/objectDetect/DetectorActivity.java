@@ -512,8 +512,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         //objectKor = objectKor.substring(0, objectKor.indexOf("\",\"engineType\""));
 
         // 번역 결과
-        //Log.d("select Object", "-------------------------");
-        //Log.d("select Object", objectKor2[1]);
+        Log.d("select Object", "-------------------------");
+        Log.d("select Object", objectKor2[1]);
 
       } catch (Exception e) {
         System.out.println(e);
