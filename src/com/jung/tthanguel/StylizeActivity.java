@@ -59,7 +59,8 @@ import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
 import com.jung.tthanguel.env.BorderedText;
 import com.jung.tthanguel.env.ImageUtils;
 import com.jung.tthanguel.env.Logger;
-import com.jung.tthanguel.R; // Explicit import needed for internal Google builds.
+import com.jung.tthanguel.objectDetect.CameraActivity;
+import com.jung.tthanguel.objectDetect.OverlayView;
 
 /**
  * Sample activity that stylizes the camera preview according to "A Learned Representation For

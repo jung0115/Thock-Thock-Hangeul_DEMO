@@ -15,6 +15,8 @@ limitations under the License.
 
 package com.jung.tthanguel;
 
+import com.jung.tthanguel.objectDetect.Classifier;
+
 import java.util.List;
 
 public interface ResultsView {

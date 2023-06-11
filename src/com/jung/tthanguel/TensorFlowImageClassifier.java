@@ -19,6 +19,9 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Trace;
 import android.util.Log;
+
+import com.jung.tthanguel.objectDetect.Classifier;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -5,10 +5,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartTTHangeulActivity"
+    tools:context=".startTTHangeul.StartTTHangeulActivity"
     android:background="@color/background">
+    
+    <!-- 기능 버튼 -->
+    <LinearLayout
+        android:id="@+id/linear_more_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="12dp"
+        android:orientation="horizontal"
+        android:layout_alignParentEnd="true">
 
+        <!-- 랭킹 확인 -->
+        <ImageButton
+            android:id="@+id/btn_lanking"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/ic_lanking"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@color/transparent"
+            android:elevation="20dp"/>
+
+        <!-- 도움말 -->
+        <ImageButton
+            android:id="@+id/btn_help"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/ic_help"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@color/transparent"
+            android:elevation="20dp"/>
+        
+    </LinearLayout>
+
+    <!-- 앱 로고 -->
     <ImageView
+        android:id="@+id/image_logo"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
@@ -17,6 +55,65 @@
         android:src="@drawable/ic_tt_hangeul"
         android:layout_centerHorizontal="true" />
 
+    <RelativeLayout
+        android:id="@+id/relative_games"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_below="@id/image_logo"
+        android:layout_centerHorizontal="true">
+
+        <!-- 나의 이름은 - 이름 퀴즈-->
+        <ImageButton
+            android:id="@+id/btn_game_name"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:adjustViewBounds="true"
+            android:background="@color/transparent"
+            android:elevation="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_game_name" />
+
+        <!-- 내가 누굴까? - 특징 퀴즈-->
+        <ImageButton
+            android:id="@+id/btn_game_charic"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_game_charic"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@color/transparent"
+            android:elevation="20dp"
+            android:layout_toRightOf="@id/btn_game_name"/>
+
+        <!-- 랜덤 퀴즈-->
+        <ImageButton
+            android:id="@+id/btn_game_random"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_game_random"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@color/transparent"
+            android:elevation="20dp"
+            android:layout_below="@id/btn_game_name"/>
+
+        <!-- 준비 중 -->
+        <ImageButton
+            android:id="@+id/btn_game_close"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_game_close"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@color/transparent"
+            android:elevation="20dp"
+            android:layout_below="@id/btn_game_charic"
+            android:layout_toRightOf="@id/btn_game_random"/>
+
+    </RelativeLayout>
+
+    <!--
     <Button
         android:id="@+id/btn_start_app"
         android:layout_width="match_parent"
@@ -30,5 +127,6 @@
         android:background="@drawable/shape_radius_btn"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>
+    -->
 
 </RelativeLayout>

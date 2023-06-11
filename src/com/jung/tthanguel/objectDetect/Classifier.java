@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-package com.jung.tthanguel;
+package com.jung.tthanguel.objectDetect;
 
 import android.graphics.Bitmap;
 import android.graphics.RectF;
@@ -22,6 +22,8 @@ import java.util.List;
 /**
  * Generic interface for interacting with different recognition engines.
  */
+
+// 탐지한 객체 자료형
 public interface Classifier {
   /**
    * An immutable result returned by a Classifier describing what was recognized.
@@ -49,9 +51,9 @@ public interface Classifier {
     public Recognition(
         final String id, final String title, final Float confidence, final RectF location) {
       this.id = id;
-      this.title = title;
+      this.title = title;            // 객체 이름
       this.confidence = confidence;
-      this.location = location;
+      this.location = location;      // 객체 위치
     }
 
     public String getId() {

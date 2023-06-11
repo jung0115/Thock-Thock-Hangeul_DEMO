@@ -31,9 +31,21 @@
         <!-- 배경색 -->
         <item name="android:windowBackground">@color/background</item>
         <!-- 상태바 아이콘색 - true: 어둡게-->
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
         <!-- 상태바 색상 - 투명하게 해둠 -->
         <item name="android:statusBarColor">@color/transparent</item>
 
+        <!-- bottom sheet rounding을 위한-->
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialog</item>
+
+    </style>
+
+    <!-- bottom sheet rounding을 위한-->
+    <style name="BottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+        <item name="android:colorBackground">@color/white</item>
+    </style>
+    <style name="BottomSheet" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="backgroundTint">@android:color/transparent</item>
     </style>
 </resources>

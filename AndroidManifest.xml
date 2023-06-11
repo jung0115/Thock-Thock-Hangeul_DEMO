@@ -5,15 +5,19 @@
 
     <uses-sdk android:minSdkVersion="21" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <uses-feature
         android:name="android.software.leanback"
         android:required="false" />
@@ -29,10 +33,12 @@
         android:roundIcon="@drawable/ic_tt_hangeul_logo_round"
         android:theme="@style/Theme.Thock_Thock_Hangeul"
         tools:targetApi="31">
-
+        <activity
+            android:name=".game.LankingActivity"
+            android:exported="false" />
         <!-- 앱 최초 접속 페이지 -->
         <activity
-            android:name="com.jung.tthanguel.StartTTHangeulActivity"
+            android:name=".startTTHangeul.StartTTHangeulActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -41,15 +47,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 객체 인식 -->
+        </activity> <!-- 객체 인식 -->
         <activity
-            android:name="com.jung.tthanguel.DetectorActivity"
+            android:name=".objectDetect.DetectorActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

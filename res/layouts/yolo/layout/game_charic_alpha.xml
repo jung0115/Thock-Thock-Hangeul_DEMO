@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_game_charic_alpha"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background">
+
+    <!-- 문제 번호 -->
+    <TextView
+        android:id="@+id/text_game_name_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:text="1번째 문제"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/light_green" />
+
+    <!-- 문제 -->
+    <TextView
+        android:id="@+id/text_game_name_quiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="18dp"
+        android:text="방금 찾은 물건의 이름은 무엇일까요?"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@id/text_game_name_num"/>
+
+    <Button
+        android:id="@+id/btn_charic_alpha1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingVertical="10dp"
+        android:text="의자"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/shape_radius_btn_light"
+        android:layout_below="@id/text_game_name_quiz"/>
+
+    <Button
+        android:id="@+id/btn_charic_alpha2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingVertical="10dp"
+        android:text="가방"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/shape_radius_btn_light"
+        android:layout_below="@id/btn_charic_alpha1"/>
+
+    <Button
+        android:id="@+id/btn_charic_alpha3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingVertical="10dp"
+        android:text="노트북"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/shape_radius_btn_light"
+        android:layout_below="@id/btn_charic_alpha2"/>
+
+    <Button
+        android:id="@+id/btn_skip_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingVertical="16dp"
+        android:text="모르겠어요 🥲"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/shape_radius_btn"
+        android:layout_below="@id/btn_charic_alpha3"/>
+
+</RelativeLayout>

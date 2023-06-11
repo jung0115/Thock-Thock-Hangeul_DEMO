@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".game.LankingActivity"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/text_game_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="점수를 갱신하지 못했어요 🥲"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <!-- 점수 -->
+    <LinearLayout
+        android:id="@+id/linear_game_name_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/text_game_score"
+        android:layout_centerHorizontal="true">
+
+        <!-- 현재 점수 -->
+        <LinearLayout
+            android:id="@+id/linear_game_name_score_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- 현재 점수 라벨 -->
+            <TextView
+                android:id="@+id/text_game_name_score_current_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="현재 점수"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/light_yellow" />
+
+            <!-- 현재 점수 값-->
+            <TextView
+                android:id="@+id/text_game_name_score_current_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="10"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"/>
+
+        <!-- 최고 점수 -->
+        <LinearLayout
+            android:id="@+id/linear_game_name_score_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- 최고 점수 라벨 -->
+            <TextView
+                android:id="@+id/text_game_name_score_top_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최고 점수"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/light_yellow" />
+
+            <!-- 최고 점수 값-->
+            <TextView
+                android:id="@+id/text_game_name_score_top_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="10"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_skip_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingVertical="16dp"
+        android:text="게임 더 할래요 😀"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/shape_radius_btn"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
