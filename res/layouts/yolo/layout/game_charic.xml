@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_game_name"
+    android:id="@+id/layout_game_charic"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/background">
 
     <!-- 문제 번호 -->
     <TextView
-        android:id="@+id/text_game_name_num"
+        android:id="@+id/text_game_charic_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -20,30 +20,30 @@
 
     <!-- 문제 -->
     <TextView
-        android:id="@+id/text_game_name_quiz"
+        android:id="@+id/text_game_charic_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="18dp"
-        android:text="[ 물을 담을 수 있는 물건 ] 을(를) 찾아주세요!"
+        android:text="[ 물이 들어있는 물건 ] 을(를) 찾아주세요!"
         android:textSize="25sp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:layout_below="@id/text_game_name_num"/>
+        android:layout_below="@id/text_game_charic_num"/>
 
     <!-- 점수 -->
     <LinearLayout
-        android:id="@+id/linear_game_name_score"
+        android:id="@+id/linear_game_charic_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
-        android:layout_below="@id/text_game_name_quiz"
+        android:layout_below="@id/text_game_charic_quiz"
         android:layout_centerHorizontal="true">
 
         <!-- 현재 점수 -->
         <LinearLayout
-            android:id="@+id/linear_game_name_score_current"
+            android:id="@+id/linear_game_charic_score_current"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="60dp"
@@ -52,7 +52,7 @@
 
             <!-- 현재 점수 라벨 -->
             <TextView
-                android:id="@+id/text_game_name_score_current_label"
+                android:id="@+id/text_game_charic_score_current_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="현재 점수"
@@ -62,7 +62,7 @@
 
             <!-- 현재 점수 값-->
             <TextView
-                android:id="@+id/text_game_name_score_current_value"
+                android:id="@+id/text_game_charic_score_current_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -80,7 +80,7 @@
 
         <!-- 최고 점수 -->
         <LinearLayout
-            android:id="@+id/linear_game_name_score_top"
+            android:id="@+id/linear_game_charic_score_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="60dp"
@@ -89,7 +89,7 @@
 
             <!-- 최고 점수 라벨 -->
             <TextView
-                android:id="@+id/text_game_name_score_top_label"
+                android:id="@+id/text_game_charic_score_top_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="최고 점수"
@@ -99,11 +99,11 @@
 
             <!-- 최고 점수 값-->
             <TextView
-                android:id="@+id/text_game_name_score_top_value"
+                android:id="@+id/text_game_charic_score_top_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="10"
+                android:text="0"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:textColor="@color/white" />
@@ -125,6 +125,6 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:background="@drawable/shape_radius_btn"
-        android:layout_below="@id/linear_game_name_score"/>
+        android:layout_below="@id/linear_game_charic_score"/>
 
 </RelativeLayout>

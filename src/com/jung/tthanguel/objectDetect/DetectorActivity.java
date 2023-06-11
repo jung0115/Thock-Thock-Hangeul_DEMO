@@ -16,6 +16,7 @@
 
 package com.jung.tthanguel.objectDetect;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -35,6 +36,8 @@ import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -51,6 +54,7 @@ import java.util.List;
 import java.util.Vector;
 
 import com.jung.tthanguel.BuildConfig;
+import com.jung.tthanguel.game.LankingActivity;
 import com.jung.tthanguel.objectDetect.OverlayView.DrawCallback;
 import com.jung.tthanguel.TensorFlowMultiBoxDetector;
 import com.jung.tthanguel.TensorFlowObjectDetectionAPIModel;
@@ -514,6 +518,15 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         // 번역 결과
         Log.d("select Object", "-------------------------");
         Log.d("select Object", objectKor2[1]);
+
+        if(objectKor2[1].equals("병")) {
+          Intent intent = new Intent(DetectorActivity.this, LankingActivity.class);
+          startActivity(intent);
+          finish();
+        }
+        else {
+          Toast.makeText(DetectorActivity.this, "틀렸어요! 다시 찾아보세요.", Toast.LENGTH_SHORT).show();
+        }
 
       } catch (Exception e) {
         System.out.println(e);

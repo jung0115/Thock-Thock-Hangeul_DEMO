@@ -17,7 +17,7 @@
         android:text="몇 개의 문제를 맞혀볼까요?"
         android:textSize="23sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_select_count"

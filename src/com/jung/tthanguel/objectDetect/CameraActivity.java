@@ -41,6 +41,7 @@ import android.view.KeyEvent;
 import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import java.nio.ByteBuffer;
 
@@ -75,8 +76,8 @@ public abstract class CameraActivity extends Activity
   private Runnable postInferenceCallback;
   private Runnable imageConverter;
 
-  private String gameMode;
-  private int gameCount;
+  public String gameMode;
+  public int gameCount;
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
@@ -89,6 +90,13 @@ public abstract class CameraActivity extends Activity
     Intent intent = getIntent();
     gameMode = intent.getStringExtra("game");
     gameCount = intent.getIntExtra("count", 1);
+
+    /*if(gameMode.equals("charic")) {
+      RelativeLayout nameGame = findViewById(R.id.include_game_name);
+      nameGame.setVisibility(View.GONE);
+      RelativeLayout charicGame = findViewById(R.id.include_game_charic);
+      charicGame.setVisibility(View.VISIBLE);
+    }*/
 
     // Full Screen : 상태바 감추기
     setFullScreen();

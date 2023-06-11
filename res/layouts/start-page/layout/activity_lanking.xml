@@ -1,44 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_game_name"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".game.LankingActivity"
     android:background="@color/background">
 
-    <!-- 문제 번호 -->
     <TextView
-        android:id="@+id/text_game_name_num"
+        android:id="@+id/text_game_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:text="1번째 문제"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/light_green" />
-
-    <!-- 문제 -->
-    <TextView
-        android:id="@+id/text_game_name_quiz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="18dp"
-        android:text="[ 물을 담을 수 있는 물건 ] 을(를) 찾아주세요!"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:text="점수를 갱신하지 못했어요 🥲"
         android:textColor="@color/white"
-        android:layout_below="@id/text_game_name_num"/>
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"/>
+
 
     <!-- 점수 -->
     <LinearLayout
         android:id="@+id/linear_game_name_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="80dp"
         android:orientation="horizontal"
-        android:layout_below="@id/text_game_name_quiz"
+        android:layout_below="@id/text_game_score"
         android:layout_centerHorizontal="true">
 
         <!-- 현재 점수 -->
@@ -66,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="0"
+                android:text="10"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:textColor="@color/white" />
@@ -117,14 +105,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginHorizontal="25dp"
         android:paddingVertical="16dp"
-        android:text="못 찾겠어요 🥲"
+        android:text="게임 더 할래요 😀"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20sp"
         android:background="@drawable/shape_radius_btn"
-        android:layout_below="@id/linear_game_name_score"/>
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

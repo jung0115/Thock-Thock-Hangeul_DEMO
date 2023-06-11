@@ -45,4 +45,20 @@
           android:layout_below="@id/texture"
           layout="@layout/game_name"/>
 
+      <include
+          android:id="@+id/include_game_charic"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/texture"
+          layout="@layout/game_charic"
+          android:visibility="gone"/>
+
+      <include
+          android:id="@+id/include_game_charic_alpha"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/texture"
+          layout="@layout/game_charic_alpha"
+          android:visibility="gone"/>
+
 </RelativeLayout>
