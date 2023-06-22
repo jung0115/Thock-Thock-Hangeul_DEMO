@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package com.jung.tthanguel;
+package com.jung.tthanguel.objectDetect;
 
 import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
@@ -40,8 +41,12 @@ import android.view.KeyEvent;
 import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import java.nio.ByteBuffer;
+
+import com.jung.tthanguel.CameraConnectionFragment;
+import com.jung.tthanguel.LegacyCameraConnectionFragment;
 import com.jung.tthanguel.env.ImageUtils;
 import com.jung.tthanguel.env.Logger;
 import com.jung.tthanguel.R; // Explicit import needed for internal Google builds.
@@ -71,6 +76,9 @@ public abstract class CameraActivity extends Activity
   private Runnable postInferenceCallback;
   private Runnable imageConverter;
 
+  public String gameMode;
+  public int gameCount;
+
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     LOGGER.d("onCreate " + this);
@@ -78,6 +86,17 @@ public abstract class CameraActivity extends Activity
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     setContentView(R.layout.activity_camera);
+
+    Intent intent = getIntent();
+    gameMode = intent.getStringExtra("game");
+    gameCount = intent.getIntExtra("count", 1);
+
+    /*if(gameMode.equals("charic")) {
+      RelativeLayout nameGame = findViewById(R.id.include_game_name);
+      nameGame.setVisibility(View.GONE);
+      RelativeLayout charicGame = findViewById(R.id.include_game_charic);
+      charicGame.setVisibility(View.VISIBLE);
+    }*/
 
     // Full Screen : 상태바 감추기
     setFullScreen();

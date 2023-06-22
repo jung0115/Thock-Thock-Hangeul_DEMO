@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.jung.tthanguel;
+package com.jung.tthanguel.objectDetect;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -27,16 +28,37 @@ import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.SystemClock;
+import android.util.Log;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
-import com.jung.tthanguel.OverlayView.DrawCallback;
+
+import com.jung.tthanguel.BuildConfig;
+import com.jung.tthanguel.game.LankingActivity;
+import com.jung.tthanguel.objectDetect.OverlayView.DrawCallback;
+import com.jung.tthanguel.TensorFlowMultiBoxDetector;
+import com.jung.tthanguel.TensorFlowObjectDetectionAPIModel;
+import com.jung.tthanguel.TensorFlowYoloDetector;
 import com.jung.tthanguel.env.BorderedText;
 import com.jung.tthanguel.env.ImageUtils;
 import com.jung.tthanguel.env.Logger;
@@ -123,6 +145,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     final float textSizePx =
         TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
+    LOGGER.i("Test label-----------------------------------");
+    LOGGER.i("Test label" + getResources().getDisplayMetrics().toString());
     borderedText = new BorderedText(textSizePx);
     borderedText.setTypeface(Typeface.MONOSPACE);
 
@@ -243,6 +267,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   OverlayView trackingOverlay;
 
+  // 탐지한 객체 모음
+  List<Classifier.Recognition> objects =
+          new LinkedList<Classifier.Recognition>();
+
   @Override
   protected void processImage() {
     ++timestamp;
@@ -312,14 +340,24 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
             final List<Classifier.Recognition> mappedRecognitions =
                 new LinkedList<Classifier.Recognition>();
 
+            // 탐지한 객체: 이전의 값은 모두 지움
+            objects.clear();
+
             for (final Classifier.Recognition result : results) {
               final RectF location = result.getLocation();
               if (location != null && result.getConfidence() >= minimumConfidence) {
+                // 객체 위치 정보 (= 바운딩 박스 좌표)
+                //Log.d("Test result", "------------------------------------------");
+                //Log.d("Test result", result.toString());
                 canvas.drawRect(location, paint);
 
                 cropToFrameTransform.mapRect(location);
                 result.setLocation(location);
                 mappedRecognitions.add(result);
+                objects.add(result); // 탐지한 객체
+                // 객체(물건) 이름, 위치 정보
+                //Log.d("Test all", "------------------------------------------");
+                //Log.d("Test all", mappedRecognitions.toString());
               }
             }
 
@@ -357,5 +395,143 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   @Override
   public void onSetDebug(final boolean debug) {
     detector.enableStatLogging(debug);
+  }
+
+
+  // 화면 터치 이벤트 = 바운딩 박스 터치 시 어떤 물건 터치한 건지 확인
+  @Override
+  public boolean onTouchEvent(MotionEvent event) {
+    //return super.onTouchEvent(event);
+
+    // 디바이스 가로세로 길이 구하기
+    Display display = getWindowManager().getDefaultDisplay();  // in Activity
+    /* getActivity().getWindowManager().getDefaultDisplay() */ // in Fragment
+    Point size = new Point();
+    display.getRealSize(size); // or getSize(size)
+    int width = size.x;
+    int height = size.y;
+
+    // 위치 좌표 불러오기
+    // 화면 크기, canvas 크기 고려해서 사이즈 조정
+    float event_x = event.getX() / (width / 640.0f);
+    float event_y = event.getY() / (height / 480.0f);
+
+    switch (event.getAction()){
+      case MotionEvent.ACTION_DOWN: // 화면에 터치가 시작되면
+        //Log.d("touch event", "--------------------------------");
+        //Log.d("touch event", "x: " + event_x + ", y: " + event_y);
+        whichObject(event_x, event_y, objects);
+        return true;
+
+      case MotionEvent.ACTION_MOVE: //터치가 움직이면
+        break;
+
+      case MotionEvent.ACTION_UP: //터치를 끝내면
+        break;
+
+      default:
+        return false;
+    }
+
+    return true;
+  }
+
+  // 어떤 물건을 선택한 건지 확인
+  private void whichObject(float event_x, float event_y, final List<Classifier.Recognition> objects) {
+    for(Classifier.Recognition object: objects) {
+      //Log.d("object", "-----------------------------");
+      //Log.d("object", object.toString());
+
+      // 객체명
+      String objectName = object.getTitle();
+      // 위치: left, top, right, bottom
+      RectF objectLocation = object.getLocation();
+
+      // 바운딩 박스의 가로 범위 내에 속함
+      if(objectLocation.left < event_x && objectLocation.right > event_x) {
+        // 바운딩 박스의 세로 범위 내에 속함
+        if(objectLocation.top < event_y && objectLocation.bottom > event_y) {
+          // 선택한 오브젝트 정보
+          Log.d("touch object", "---------------------------------");
+          Log.d("touch object", objectName);
+          selectedObject = objectName;
+          final Translate translate = new Translate();
+          translate.execute();
+        }
+      }
+    }
+  }
+
+  // 선택된 object
+  String selectedObject = "";
+
+  // 번역 - 파파고 api
+  class Translate extends AsyncTask<String ,Void, String > {   //ASYNCTASK를 사용
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+
+    protected String doInBackground(String... strings) {
+
+      String clientId = BuildConfig.PAPAGO_CLIENT_ID;         // papago api 클라이언트 아이디값
+      String clientSecret = BuildConfig.PAPAGO_CLIENT_SECRET; // papago api 클라이언트 시크릿값
+      try {
+        // 선택된 오브젝트
+        String objectEng = URLEncoder.encode(selectedObject, "UTF-8");
+
+        String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
+        URL url = new URL(apiURL);
+        HttpURLConnection con = (HttpURLConnection)url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("X-Naver-Client-Id", clientId);
+        con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+        // post request
+        String postParams = "source=en&target=ko&text=" + objectEng;
+        con.setDoOutput(true);
+        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        wr.writeBytes(postParams);
+        wr.flush();
+        wr.close();
+        int responseCode = con.getResponseCode();
+        BufferedReader br;
+        if(responseCode==200) { // 정상 호출
+          br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        } else {  // 에러 발생
+          br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+        }
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+        while ((inputLine = br.readLine()) != null) {
+          response.append(inputLine);
+        }
+        br.close();
+        //System.out.println(response.toString());
+
+        // response에서 번역 결과만 잘라내기
+        String objectKor1[] = response.toString().split(":");
+        String objectKor2[] = objectKor1[5].split("\"");
+
+        //String objectName[] = objectKor.split(":");
+        //objectKor = objectKor.substring(objectKor.indexOf("\"translatedText\":\"")+1);
+        //objectKor = objectKor.substring(0, objectKor.indexOf("\",\"engineType\""));
+
+        // 번역 결과
+        Log.d("select Object", "-------------------------");
+        Log.d("select Object", objectKor2[1]);
+
+        if(objectKor2[1].equals("병")) {
+          Intent intent = new Intent(DetectorActivity.this, LankingActivity.class);
+          startActivity(intent);
+          finish();
+        }
+        else {
+          Toast.makeText(DetectorActivity.this, "틀렸어요! 다시 찾아보세요.", Toast.LENGTH_SHORT).show();
+        }
+
+      } catch (Exception e) {
+        System.out.println(e);
+      }
+      return null;
+    }
   }
 }
